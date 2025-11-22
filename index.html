@@ -1,14 +1,288 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookware Brand - Premium Kitchenware</title>
+    <meta name="description" content="Explore our premium collection of cookware, pressure cookers, and kitchen accessories.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <header class="sticky-header">
+        <nav class="navbar">
+            <div class="navbar-left">
+                <div class="hamburger-menu">
+                    <i class="fa-solid fa-grip"></i>
+                </div>
+            </div>
+            <div class="navbar-center">
+                <div class="logo">
+                    <a href="#">CookwareCo</a>
+                </div>
+            </div>
+            <div class="navbar-right">
+                <div class="header-icons">
+                    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="#"><i class="fa-solid fa-user"></i></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="mobile-nav">
+        <div class="mobile-nav-header">
+            <div class="close-btn">
+                <i class="fa-solid fa-times"></i>
+            </div>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="#">Home</a></li>
+            <li class="has-submenu">
+                <a href="#">Products <i class="fa-solid fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="#">Cooker</a></li>
+                    <li class="has-submenu">
+                        <a href="#">Cookware <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="#">Frying Pan</a></li>
+                            <li><a href="#">Tava</a></li>
+                            <li><a href="#">Deep Fry Pan</a></li>
+                            <li><a href="#">Sets</a></li>
+                            <li><a href="#">Saucepan</a></li>
+                            <li><a href="#">Handi</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Electricals</a></li>
+                    <li><a href="#">Parts & Accessories</a></li>
+                </ul>
+            </li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Store Locator</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <section class="hero-section">
+            <video autoplay loop muted playsinline class="hero-video">
+                <source src="assets/videos/hero-video.mp4" type="video/mp4">
+            </video>
+            <div class="hero-content">
+                <h1>Premium Cookware for the Modern Chef</h1>
+                <p>Discover our latest collection of high-quality kitchenware.</p>
+                <a href="#" class="btn-primary">Shop Now</a>
+            </div>
+        </section>
+
+        <section class="logo-slider">
+            <div class="logo-slide-track">
+                <div class="logo-slide">
+                    <i class="fa-solid fa-utensils"></i>
+                </div>
+                <div class="logo-slide">
+                    <i class="fa-solid fa-blender"></i>
+                </div>
+                <div class="logo-slide">
+                    <i class="fa-solid fa-fire"></i>
+                </div>
+                <div class="logo-slide">
+                    <i class="fa-solid fa-kitchen-set"></i>
+                </div>
+                <div class="logo-slide">
+                    <i class="fa-solid fa-cookie"></i>
+                </div>
+                <div class="logo-slide">
+                    <i class="fa-solid fa-egg"></i>
+                </div>
+                 <div class="logo-slide">
+                    <i class="fa-solid fa-utensils"></i>
+                </div>
+                <div class="logo-slide">
+                    <i class="fa-solid fa-blender"></i>
+                </div>
+                <div class="logo-slide">
+                    <i class="fa-solid fa-fire"></i>
+                </div>
+                <div class="logo-slide">
+                    <i class="fa-solid fa-kitchen-set"></i>
+                </div>
+                <div class="logo-slide">
+                    <i class="fa-solid fa-cookie"></i>
+                </div>
+                <div class="logo-slide">
+                    <i class="fa-solid fa-egg"></i>
+                </div>
+            </div>
+        </section>
+
+       <section class="categories-section">
+            <div class="categories-row row-1">
+                <div class="category-item">
+                    <i class="fa-solid fa-utensils"></i>
+                    <p>Category 1</p>
+                </div>
+            </div>
+            <div class="categories-row row-2">
+                <div class="category-item">
+                    <i class="fa-solid fa-blender"></i>
+                    <p>Category 2</p>
+                </div>
+                <div class="category-item">
+                    <i class="fa-solid fa-fire"></i>
+                    <p>Category 3</p>
+                </div>
+            </div>
+            <div class="categories-row row-3">
+                <div class="category-item">
+                    <i class="fa-solid fa-kitchen-set"></i>
+                    <p>Category 4</p>
+                </div>
+                <div class="category-item">
+                    <i class="fa-solid fa-cookie"></i>
+                    <p>Category 5</p>
+                </div>
+                <div class="category-item">
+                    <i class="fa-solid fa-egg"></i>
+                    <p>Category 6</p>
+                </div>
+            </div>
+            <div class="categories-row row-4">
+                <div class="category-item">
+                    <i class="fa-solid fa-plate-wheat"></i>
+                    <p>Category 7</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-products">
+            <h2>Featured Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="assets/images/product1.jpg" alt="Product 1">
+                    <h3>Product Name</h3>
+                    <p>$99.99</p>
+                    <button class="btn-secondary">Add to Cart</button>
+                </div>
+                 <div class="product-card">
+                    <img src="assets/images/product2.jpg" alt="Product 2">
+                    <h3>Product Name</h3>
+                    <p>$129.99</p>
+                    <button class="btn-secondary">Add to Cart</button>
+                </div>
+                 <div class="product-card">
+                    <img src="assets/images/product3.jpg" alt="Product 3">
+                    <h3>Product Name</h3>
+                    <p>$79.99</p>
+                    <button class="btn-secondary">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="best-sellers">
+            <h2>Best Sellers</h2>
+            <div class="product-grid">
+                 <div class="product-card">
+                    <img src="assets/images/product3.jpg" alt="Product 3">
+                    <h3>Product Name</h3>
+                    <p>$79.99</p>
+                    <button class="btn-secondary">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/product2.jpg" alt="Product 2">
+                    <h3>Product Name</h3>
+                    <p>$129.99</p>
+                    <button class="btn-secondary">Add to Cart</button>
+                </div>
+                 <div class="product-card">
+                    <img src="assets/images/product1.jpg" alt="Product 1">
+                    <h3>Product Name</h3>
+                    <p>$99.99</p>
+                    <button class="btn-secondary">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-choose-us">
+            <h2>Why Choose Us</h2>
+            <div class="reasons">
+                <div class="reason">
+                    <i class="fa-solid fa-award"></i>
+                    <h3>Premium Quality</h3>
+                    <p>Our products are crafted from the finest materials for lasting durability.</p>
+                </div>
+                <div class="reason">
+                    <i class="fa-solid fa-leaf"></i>
+                    <h3>Eco-Friendly</h3>
+                    <p>We are committed to sustainable practices and eco-friendly packaging.</p>
+                </div>
+                <div class="reason">
+                     <i class="fa-solid fa-truck-fast"></i>
+                    <h3>Fast Shipping</h3>
+                    <p>Get your order delivered to your doorstep in no time.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="customer-reviews">
+            <h2>Customer Reviews</h2>
+            <div class="review-slider">
+                <div class="review active">
+                    <p>"I love my new cookware set! The quality is amazing and it looks beautiful in my kitchen."</p>
+                    <h4>- Jane Doe</h4>
+                </div>
+            </div>
+        </section>
+
+        <section class="brand-story">
+            <h2>Our Story</h2>
+            <p>Founded in 2024, CookwareCo is dedicated to providing chefs and home cooks with the highest quality kitchen tools. We believe that cooking should be an enjoyable and creative experience, and our products are designed to make that a reality.</p>
+        </section>
+
+        <section class="newsletter-signup">
+            <h2>Stay Updated</h2>
+            <form>
+                <input type="email" placeholder="Enter your email">
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                     <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: info@cookwareco.com</p>
+                <p>Phone: +1 234 567 890</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CookwareCo. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <button id="scroll-to-top"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <script src="main.js"></script>
 </body>
 </html>
