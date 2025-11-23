@@ -2,8 +2,8 @@
 body {
     font-family: 'Google Sans', sans-serif;
     margin: 0;
-    background-color: #fff;
-    color: #000;
+    background-color: #fff; /* White background */
+    color: #000; /* Black text */
     overflow-x: hidden;
 }
 
@@ -258,8 +258,8 @@ h3 {
 
 /* Sidebar Navigation */
 .sidebar-nav {
-    width: 300px; /* Increased width */
-    padding: 4rem 2rem; /* Increased padding */
+    width: 300px;
+    padding: 4rem 2rem;
     background-color: #f8f8f8;
     border-right: 1px solid #eee;
     position: sticky;
@@ -585,6 +585,82 @@ h3 {
     color: #fff;
 }
 
+/* Cart Page */
+.cart-section {
+    padding: 4rem 2rem;
+}
+
+.cart-container {
+    display: flex;
+    gap: 2rem;
+}
+
+.cart-items {
+    flex-grow: 1;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1.5rem;
+}
+
+.cart-item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 1.5rem;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details h3 {
+    margin: 0 0 0.5rem;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-quantity input {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 0.5rem;
+}
+
+.cart-summary {
+    width: 300px;
+    background-color: #f8f8f8;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.summary-details p {
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary-details .total {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.checkout-btn {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+
+
 /* Why Choose Us */
 .reasons {
     display: flex;
@@ -800,5 +876,13 @@ footer {
 
     #search-input {
         width: 80%;
+    }
+
+    .cart-container {
+        flex-direction: column;
+    }
+
+    .cart-summary {
+        width: 100%;
     }
 }

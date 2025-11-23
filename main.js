@@ -5,29 +5,132 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeSearch = document.getElementById('close-search');
     const searchInput = document.getElementById('search-input');
 
-    searchIcon.addEventListener('click', (e) => {
-        e.preventDefault();
-        searchBar.classList.toggle('open');
-        if (searchBar.classList.contains('open')) {
-            searchInput.focus();
-        }
-    });
+    if (searchIcon) {
+        searchIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            searchBar.classList.toggle('open');
+            if (searchBar.classList.contains('open')) {
+                searchInput.focus();
+            }
+        });
 
-    closeSearch.addEventListener('click', () => {
-        searchBar.classList.remove('open');
-    });
+        closeSearch.addEventListener('click', () => {
+            searchBar.classList.remove('open');
+        });
+    }
 
-    // Add to Cart
-    const addToCartButtons = document.querySelectorAll('.btn-secondary');
+
+    // Cart functionality
     const cartCount = document.querySelector('.cart-count');
-    let itemCount = 0;
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+    function updateCartCount() {
+        cartCount.textContent = cart.reduce((acc, item) => acc + item.quantity, 0);
+    }
+
+    function addToCart(product) {
+        const existingItem = cart.find(item => item.id === product.id);
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cart.push({ ...product, quantity: 1 });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+    }
+
+    const addToCartButtons = document.querySelectorAll('.btn-secondary');
     addToCartButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            itemCount++;
-            cartCount.textContent = itemCount;
+        button.addEventListener('click', (e) => {
+            const card = e.target.closest('.product-card');
+            const product = {
+                id: card.dataset.id,
+                name: card.dataset.name,
+                price: parseFloat(card.dataset.price),
+                image: card.dataset.image
+            };
+            addToCart(product);
         });
     });
+
+    updateCartCount();
+
+
+    // Cart Page Specific Logic
+    if (window.location.pathname.endsWith('cart.html')) {
+        const cartItemsContainer = document.querySelector('.cart-items');
+        const subtotalEl = document.getElementById('cart-subtotal');
+        const totalEl = document.getElementById('cart-total');
+
+        function renderCart() {
+            cartItemsContainer.innerHTML = '';
+            let subtotal = 0;
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+            } else {
+                 cart.forEach(item => {
+                    const cartItem = document.createElement('div');
+                    cartItem.classList.add('cart-item');
+                    cartItem.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                        <div class="cart-item-details">
+                            <h3>${item.name}</h3>
+                            <p>₹${item.price.toFixed(2)}</p>
+                            <div class="cart-item-quantity">
+                                <button class="quantity-btn" data-id="${item.id}" data-action="decrease">-</button>
+                                <input type="number" value="${item.quantity}" min="1" data-id="${item.id}">
+                                <button class="quantity-btn" data-id="${item.id}" data-action="increase">+</button>
+                            </div>
+                        </div>
+                        <button class="remove-item-btn" data-id="${item.id}">&times;</button>
+                    `;
+                    cartItemsContainer.appendChild(cartItem);
+                    subtotal += item.price * item.quantity;
+                });
+            }
+
+            subtotalEl.textContent = `₹${subtotal.toFixed(2)}`;
+            totalEl.textContent = `₹${subtotal.toFixed(2)}`; // Assuming no shipping for now
+        }
+        
+        cartItemsContainer.addEventListener('click', (e) => {
+            if(e.target.classList.contains('quantity-btn')) {
+                const id = e.target.dataset.id;
+                const action = e.target.dataset.action;
+                const item = cart.find(i => i.id === id);
+                if (action === 'increase') {
+                    item.quantity++;
+                } else if (action === 'decrease' && item.quantity > 1) {
+                    item.quantity--;
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCart();
+                updateCartCount();
+            } else if (e.target.classList.contains('remove-item-btn')) {
+                const id = e.target.dataset.id;
+                cart = cart.filter(i => i.id !== id);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCart();
+                updateCartCount();
+            }
+        });
+        
+        cartItemsContainer.addEventListener('change', (e) => {
+             if(e.target.matches('input[type="number"]')) {
+                 const id = e.target.dataset.id;
+                 const newQuantity = parseInt(e.target.value);
+                 const item = cart.find(i => i.id === id);
+                 if(newQuantity > 0) {
+                    item.quantity = newQuantity;
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    renderCart();
+                    updateCartCount();
+                 }
+             }
+        });
+
+        renderCart();
+    }
 
 
     // Mobile Navigation
@@ -37,25 +140,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const submenuLinks = document.querySelectorAll('.mobile-nav .has-submenu > a');
     const backButtons = document.querySelectorAll('.mobile-nav .submenu-back a');
 
-    // Function to open the main menu
     const openNav = () => {
         mobileNav.classList.add('open');
         document.body.style.overflow = 'hidden';
     };
 
-    // Function to close the entire menu
     const closeNav = () => {
         mobileNav.classList.remove('open');
-        // Close all submenus when closing the main nav
         document.querySelectorAll('.mobile-nav .submenu.open').forEach(submenu => {
             submenu.classList.remove('open');
         });
+        document.body.style.overflow = '';
     };
 
     hamburgerMenu.addEventListener('click', openNav);
     closeBtn.addEventListener('click', closeNav);
 
-    // Open submenus
     submenuLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -64,7 +164,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Go back from submenus
     backButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
@@ -73,7 +172,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Close menu when clicking outside of it
     document.addEventListener('click', (e) => {
         if (mobileNav.classList.contains('open') && !mobileNav.contains(e.target) && !hamburgerMenu.contains(e.target)) {
             closeNav();
