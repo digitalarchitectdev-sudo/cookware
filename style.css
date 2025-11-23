@@ -2,8 +2,8 @@
 body {
     font-family: 'Google Sans', sans-serif;
     margin: 0;
-    background-color: #000;
-    color: #fff;
+    background-color: #fff; /* Changed to white */
+    color: #000; /* Changed to black */
     overflow-x: hidden;
 }
 
@@ -22,8 +22,9 @@ img {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(255, 255, 255, 0.9); /* Lighter background */
     backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Subtle shadow */
 }
 
 .navbar {
@@ -46,7 +47,7 @@ img {
 .logo a {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #fff;
+    color: #000; /* Changed to black */
 }
 
 .navbar-right {
@@ -63,6 +64,7 @@ img {
     margin-left: 1.5rem;
     font-size: 1.2rem;
     position: relative;
+    color: #000; /* Changed to black */
 }
 
 .cart-icon-container .cart-count {
@@ -82,6 +84,7 @@ img {
     display: block;
     cursor: pointer;
     font-size: 1.5rem;
+    color: #000; /* Changed to black */
 }
 
 /* Search Bar */
@@ -89,10 +92,11 @@ img {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease-out;
-    background-color: #1a1a1a;
+    background-color: #f8f8f8; /* Lighter background */
     display: flex;
     align-items: center;
     padding: 0 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Subtle shadow */
 }
 
 .search-bar.open {
@@ -104,16 +108,16 @@ img {
     flex-grow: 1;
     padding: 0.8rem;
     font-size: 1.1rem;
-    border: none;
+    border: 1px solid #ccc; /* Lighter border */
     border-radius: 5px;
-    background-color: #333;
-    color: #fff;
+    background-color: #fff; /* Changed to white */
+    color: #000; /* Changed to black */
 }
 
 #close-search {
     background: none;
     border: none;
-    color: #fff;
+    color: #000; /* Changed to black */
     font-size: 1.5rem;
     margin-left: 1rem;
     cursor: pointer;
@@ -127,11 +131,12 @@ img {
     left: 0;
     width: 300px;
     height: 100vh;
-    background-color: #1a1a1a;
+    background-color: #fff; /* Changed to white */
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
     z-index: 1100;
     overflow-y: auto; /* Allow scrolling within the menu */
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
 }
 
 .mobile-nav.open {
@@ -147,7 +152,7 @@ img {
 .close-btn {
     cursor: pointer;
     font-size: 1.5rem;
-    color: #fff;
+    color: #000; /* Changed to black */
 }
 
 .mobile-nav-links {
@@ -161,12 +166,12 @@ img {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 1.5rem;
-    color: #fff;
+    color: #000; /* Changed to black */
     transition: background-color 0.3s ease;
 }
 
 .mobile-nav-links li a:hover {
-    background-color: #333;
+    background-color: #f0f0f0; /* Lighter hover */
 }
 
 .has-submenu > a .fa-chevron-down {
@@ -197,18 +202,119 @@ img {
 
 /* Main Content */
 main {
-    padding: 0; /* Remove padding from main */
+    padding: 0; /* No global padding for main */
+}
+
+/* About Page Wrapper - Specific styles for about.html layout */
+.about-page-wrapper {
+    display: flex; /* Apply flex to the wrapper */
+    padding: 0; /* No padding on the wrapper, sections inside will have it */
 }
 
 section {
-    padding: 4rem 2rem; /* Add horizontal padding */
+    padding: 4rem 2rem; /* Consistent padding for all sections by default */
     text-align: center;
+    flex-grow: 1;
+}
+
+/* Re-applying original padding for some sections on homepage if needed */
+.hero-section,
+.logo-slider,
+.categories-showcase,
+.youtube-video-section,
+.featured-products,
+.best-sellers,
+.why-choose-us,
+.customer-reviews,
+.brand-story,
+.newsletter-signup {
+    padding: 4rem 0; /* Revert to original padding for these sections */
+}
+
+.legal-content,
+.about-company-content {
+    text-align: left; /* Align text left for these content sections */
+    padding: 4rem 2rem; /* Keep padding for content pages */
 }
 
 h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
+    color: #000; /* Changed to black */
 }
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #000; /* Changed to black */
+    font-weight: bold;
+}
+
+/* Sidebar Navigation */
+.sidebar-nav {
+    width: 250px;
+    padding: 4rem 1rem;
+    background-color: #f8f8f8; /* Lighter background */
+    border-right: 1px solid #eee; /* Light border */
+    position: sticky;
+    top: 0; 
+    height: 100vh; 
+    overflow-y: auto; 
+    text-align: left;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li a {
+    display: block;
+    padding: 0.8rem 0;
+    color: #000; /* Black text */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sidebar-nav li a:hover {
+    color: #555; /* Darker hover */
+}
+
+
+/* About Company Content */
+.content-with-image {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    gap: 2rem;
+    text-align: left;
+}
+
+.content-image-left {
+    width: 300px;
+    flex-shrink: 0;
+    border-radius: 8px;
+}
+
+.text-content {
+    flex-grow: 1;
+}
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.image-gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
 
 /* Hero Section */
 .hero-section {
@@ -236,7 +342,7 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.3); /* Lighter overlay for white text */
     z-index: -1;
 }
 
@@ -247,7 +353,8 @@ h2 {
     transform: translate(-50%, -50%);
     text-align: center;
     width: 100%;
-    padding: 0 20px; /* Add horizontal padding */
+    padding: 0 20px;
+    color: #000; /* Changed to black */
 }
 
 .hero-content h1 {
@@ -265,7 +372,7 @@ h2 {
     padding: 1rem 2rem;
     margin-top: 1rem;
     background-color: #ffd700;
-    color: #1a1a1a;
+    color: #000; /* Changed to black */
     font-weight: bold;
     border-radius: 5px;
     transition: background-color 0.3s ease;
@@ -280,8 +387,9 @@ h2 {
     width: 100%;
     overflow: hidden;
     position: relative;
-    background: #000; /* Update BG to black */
+    background: #fff; /* Changed to white */
     padding: 20px 0;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05); /* Subtle shadow */
 }
 
 .logo-slide-track {
@@ -298,7 +406,7 @@ h2 {
     padding: 15px;
     margin: 0 20px;
     font-size: 2rem;
-    color: #fff; /* Update icon color to white */
+    color: #000; /* Changed to black */
 }
 
 .logo-slide i {
@@ -321,6 +429,7 @@ h2 {
     flex-direction: column;
     gap: 1rem;
     padding: 4rem 2rem;
+    background-color: #f8f8f8;
 }
 
 .category-row {
@@ -333,11 +442,12 @@ h2 {
     overflow: hidden;
     border-radius: 10px;
     height: 300px;
-    color: #fff;
+    color: #000; /* Changed to black */
     display: flex;
     align-items: center;
     justify-content: center;
     transition: transform 0.4s ease;
+    background-color: #f8f8f8; /* Lighter background */
 }
 
 .category-card::before {
@@ -347,7 +457,7 @@ h2 {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    background: linear-gradient(120deg, transparent, rgba(0, 0, 0, 0.1), transparent); /* Darker shine effect */
     transition: left 0.6s ease;
 }
 
@@ -379,7 +489,7 @@ h2 {
     height: 100%;
     object-fit: cover;
     z-index: -1;
-    filter: brightness(0.6);
+    filter: brightness(0.8); /* Adjusted brightness */
 }
 
 .category-content {
@@ -391,6 +501,7 @@ h2 {
 /* YouTube Video Section */
 .youtube-video-section {
     padding: 4rem 2rem;
+    background-color: #f0f0f0; /* Lighter background */
 }
 
 .video-container {
@@ -399,7 +510,7 @@ h2 {
     height: 0;
     overflow: hidden;
     max-width: 100%;
-    background: #000;
+    background: #e0e0e0; /* Lighter background */
 }
 
 .video-container iframe {
@@ -418,16 +529,17 @@ h2 {
 }
 
 .product-card {
-    background-color: #2c2c2c;
+    background-color: #f8f8f8; /* Lighter background */
     padding: 1rem;
     border-radius: 10px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Subtle shadow */
 }
 
 .product-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .product-card img {
@@ -440,11 +552,12 @@ h2 {
 .product-card h3 {
     margin-top: 1rem;
     font-size: 1.2rem;
+    color: #000; /* Changed to black */
 }
 
 .product-card p {
     font-size: 1.1rem;
-    color: #ffd700;
+    color: #000; /* Changed to black */
     font-style: italic;
 }
 
@@ -453,8 +566,8 @@ h2 {
     padding: 0.8rem 1.5rem;
     margin-top: 1rem;
     background-color: transparent;
-    border: 2px solid #ffd700;
-    color: #ffd700;
+    border: 2px solid #000; /* Changed to black border */
+    color: #000; /* Changed to black text */
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
@@ -462,8 +575,8 @@ h2 {
 }
 
 .btn-secondary:hover {
-    background-color: #ffd700;
-    color: #1a1a1a;
+    background-color: #000; /* Changed to black background */
+    color: #fff; /* Changed to white text */
 }
 
 /* Why Choose Us */
@@ -476,6 +589,7 @@ h2 {
 
 .reason {
     max-width: 300px;
+    color: #000; /* Changed to black */
 }
 
 .reason i {
@@ -492,10 +606,12 @@ h2 {
 }
 
 .review-card {
-    background-color: #1a1a1a;
+    background-color: #f8f8f8; /* Lighter background */
     padding: 2rem;
     border-radius: 10px;
     text-align: left;
+    color: #000; /* Changed to black */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Subtle shadow */
 }
 
 .review-stars {
@@ -513,6 +629,15 @@ h2 {
 }
 
 /* Newsletter */
+.newsletter-signup {
+    background-color: #f0f0f0; /* Lighter background */
+    padding: 4rem 2rem;
+}
+
+.newsletter-signup h2 {
+    color: #000; /* Changed to black */
+}
+
 .newsletter-signup form {
     display: flex;
     justify-content: center;
@@ -522,10 +647,10 @@ h2 {
 .newsletter-signup input {
     padding: 1rem;
     font-size: 1rem;
-    border: 1px solid #555;
+    border: 1px solid #ccc; /* Lighter border */
     border-radius: 5px 0 0 5px;
-    background-color: #333;
-    color: #fff;
+    background-color: #fff; /* Changed to white */
+    color: #000; /* Changed to black */
     width: 300px;
 }
 
@@ -533,22 +658,23 @@ h2 {
     padding: 1rem 2rem;
     font-size: 1rem;
     border: none;
-    background-color: #ffd700;
-    color: #1a1a1a;
+    background-color: #000; /* Changed to black */
+    color: #fff; /* Changed to white */
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .newsletter-signup button:hover {
-    background-color: #e6c300;
+    background-color: #333; /* Darker hover */
 }
 
 /* Footer */
 footer {
-    background-color: #000;
+    background-color: #000; /* Keep black for contrast */
     padding: 2rem;
     text-align: center;
+    color: #fff; /* Keep white for contrast */
 }
 
 .footer-content {
@@ -566,6 +692,7 @@ footer {
     font-size: 1.3rem;
     margin-bottom: 1rem;
     font-weight: bold;
+    color: #fff; /* Keep white for contrast */
 }
 
 .footer-section ul {
@@ -584,6 +711,7 @@ footer {
 
 .social-icons a {
     margin: 0 0.5rem;
+    color: #fff; /* Keep white for contrast */
 }
 
 .footer-bottom {
@@ -596,8 +724,8 @@ footer {
     bottom: 20px;
     right: 20px;
     display: none;
-    background-color: #ffd700;
-    color: #1a1a1a;
+    background-color: #000; /* Changed to black */
+    color: #fff; /* Changed to white */
     border: none;
     border-radius: 50%;
     width: 50px;
@@ -607,7 +735,26 @@ footer {
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+#scroll-to-top:hover {
+    background-color: #333;
+}
+
 /* Responsive */
+@media (max-width: 992px) {
+    .sidebar-nav {
+        display: none; /* Hide sidebar on smaller screens */
+    }
+
+    .about-company-content {
+        padding-left: 0; /* Remove padding when sidebar is hidden */
+    }
+
+    .content-with-image {
+        flex-direction: column; /* Stack image and text */
+        align-items: center;
+    }
+}
+
 @media (max-width: 768px) {
     .category-row {
         flex-direction: column;
@@ -633,11 +780,15 @@ footer {
     }
 
     .hero-section {
-        height: 50vh; /* scale down on mobile */
-        padding-top: 28.125%; /* scale down the aspect ratio */
+        height: 50vh;
+        padding-top: 28.125%;
     }
 
     .hero-content h1 {
         font-size: 2.5rem;
+    }
+
+    #search-input {
+        width: 80%;
     }
 }
