@@ -1,4 +1,35 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Search Bar
+    const searchIcon = document.getElementById('search-icon');
+    const searchBar = document.getElementById('search-bar');
+    const closeSearch = document.getElementById('close-search');
+    const searchInput = document.getElementById('search-input');
+
+    searchIcon.addEventListener('click', (e) => {
+        e.preventDefault();
+        searchBar.classList.toggle('open');
+        if (searchBar.classList.contains('open')) {
+            searchInput.focus();
+        }
+    });
+
+    closeSearch.addEventListener('click', () => {
+        searchBar.classList.remove('open');
+    });
+
+    // Add to Cart
+    const addToCartButtons = document.querySelectorAll('.btn-secondary');
+    const cartCount = document.querySelector('.cart-count');
+    let itemCount = 0;
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            itemCount++;
+            cartCount.textContent = itemCount;
+        });
+    });
+
+
     // Mobile Navigation
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const mobileNav = document.querySelector('.mobile-nav');
@@ -20,33 +51,39 @@ document.addEventListener('DOMContentLoaded', function() {
     closeBtn.addEventListener('click', closeNav);
 
     // Submenu Accordion
-    const submenuItems = document.querySelectorAll('.has-submenu > a');
+    const submenuLinks = document.querySelectorAll('.mobile-nav .has-submenu > a');
 
-    submenuItems.forEach(item => {
-        item.addEventListener('click', function(e) {
+    submenuLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
             e.preventDefault();
-            const parent = this.parentElement;
+            const parentLi = this.parentElement;
             const submenu = this.nextElementSibling;
+            const wasOpen = parentLi.classList.contains('open');
 
-            // First close any open submenus
-            submenuItems.forEach(otherItem => {
-                const otherParent = otherItem.parentElement;
-                if (otherParent !== parent && otherParent.classList.contains('open')) {
-                    otherParent.classList.remove('open');
-                    otherItem.nextElementSibling.style.maxHeight = '0';
+            // Close all sibling submenus at the current level
+            const parentUl = parentLi.parentElement;
+            Array.from(parentUl.children).forEach(sibling => {
+                if (sibling.classList.contains('has-submenu') && sibling.classList.contains('open')) {
+                    sibling.classList.remove('open');
+                    sibling.querySelector('.submenu').style.maxHeight = null;
                 }
             });
 
-            // Now toggle the current submenu
-            if (parent.classList.contains('open')) {
-                parent.classList.remove('open');
-                submenu.style.maxHeight = '0';
-            } else {
-                parent.classList.add('open');
+            // If the clicked menu item was not already open, open it.
+            if (!wasOpen) {
+                parentLi.classList.add('open');
                 submenu.style.maxHeight = submenu.scrollHeight + 'px';
+            }
+            
+            // Adjust parent submenu height
+            let ancestor = parentLi.closest('.submenu');
+            while(ancestor) {
+                ancestor.style.maxHeight = ancestor.scrollHeight + 'px';
+                ancestor = ancestor.parentElement.closest('.submenu');
             }
         });
     });
+
 
     // Close menu when clicking outside of it
     document.addEventListener('click', (e) => {

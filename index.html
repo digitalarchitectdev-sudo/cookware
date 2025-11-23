@@ -24,12 +24,19 @@
             </div>
             <div class="navbar-right">
                 <div class="header-icons">
-                    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="#" id="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    <a href="#" class="cart-icon-container">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-count">0</span>
+                    </a>
                     <a href="#"><i class="fa-solid fa-user"></i></a>
                 </div>
             </div>
         </nav>
+        <div id="search-bar" class="search-bar">
+            <input type="text" placeholder="Search for products..." id="search-input">
+            <button id="close-search"><i class="fa-solid fa-times"></i></button>
+        </div>
     </header>
 
     <div class="mobile-nav">
@@ -119,42 +126,63 @@
             </div>
         </section>
 
-       <section class="categories-section">
-            <div class="categories-row row-1">
-                <div class="category-item">
-                    <i class="fa-solid fa-utensils"></i>
-                    <p>Category 1</p>
+        <section class="categories-showcase">
+            <div class="category-row">
+                <div class="category-card large">
+                    <img src="assets/images/category-1.jpg" alt="Category 1" class="category-bg">
+                    <div class="category-content">
+                        <h3>Cookers</h3>
+                    </div>
                 </div>
             </div>
-            <div class="categories-row row-2">
-                <div class="category-item">
-                    <i class="fa-solid fa-blender"></i>
-                    <p>Category 2</p>
+            <div class="category-row">
+                <div class="category-card medium">
+                    <img src="assets/images/category-2.jpg" alt="Category 2" class="category-bg">
+                    <div class="category-content">
+                        <h3>Cookware</h3>
+                    </div>
                 </div>
-                <div class="category-item">
-                    <i class="fa-solid fa-fire"></i>
-                    <p>Category 3</p>
-                </div>
-            </div>
-            <div class="categories-row row-3">
-                <div class="category-item">
-                    <i class="fa-solid fa-kitchen-set"></i>
-                    <p>Category 4</p>
-                </div>
-                <div class="category-item">
-                    <i class="fa-solid fa-cookie"></i>
-                    <p>Category 5</p>
-                </div>
-                <div class="category-item">
-                    <i class="fa-solid fa-egg"></i>
-                    <p>Category 6</p>
+                <div class="category-card medium">
+                    <img src="assets/images/category-3.jpg" alt="Category 3" class="category-bg">
+                    <div class="category-content">
+                        <h3>Electricals</h3>
+                    </div>
                 </div>
             </div>
-            <div class="categories-row row-4">
-                <div class="category-item">
-                    <i class="fa-solid fa-plate-wheat"></i>
-                    <p>Category 7</p>
+            <div class="category-row">
+                <div class="category-card small">
+                    <img src="assets/images/category-4.jpg" alt="Category 4" class="category-bg">
+                    <div class="category-content">
+                        <h3>Parts & Accessories</h3>
+                    </div>
                 </div>
+                <div class="category-card small">
+                    <img src="assets/images/category-5.jpg" alt="Category 5" class="category-bg">
+                    <div class="category-content">
+                        <h3>Sets</h3>
+                    </div>
+                </div>
+                <div class="category-card small">
+                    <img src="assets/images/category-6.jpg" alt="Category 6" class="category-bg">
+                    <div class="category-content">
+                        <h3>Handi</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="category-row">
+                <div class="category-card large">
+                    <img src="assets/images/category-7.jpg" alt="Category 7" class="category-bg">
+                    <div class="category-content">
+                        <h3>New Arrivals</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="youtube-video-section">
+            <h2>Our Cookware in Action</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </section>
 
@@ -164,19 +192,19 @@
                 <div class="product-card">
                     <img src="assets/images/product1.jpg" alt="Product 1">
                     <h3>Product Name</h3>
-                    <p>$99.99</p>
+                    <p>₹7,999</p>
                     <button class="btn-secondary">Add to Cart</button>
                 </div>
                  <div class="product-card">
                     <img src="assets/images/product2.jpg" alt="Product 2">
                     <h3>Product Name</h3>
-                    <p>$129.99</p>
+                    <p>₹9,999</p>
                     <button class="btn-secondary">Add to Cart</button>
                 </div>
                  <div class="product-card">
                     <img src="assets/images/product3.jpg" alt="Product 3">
                     <h3>Product Name</h3>
-                    <p>$79.99</p>
+                    <p>₹5,999</p>
                     <button class="btn-secondary">Add to Cart</button>
                 </div>
             </div>
@@ -188,19 +216,19 @@
                  <div class="product-card">
                     <img src="assets/images/product3.jpg" alt="Product 3">
                     <h3>Product Name</h3>
-                    <p>$79.99</p>
+                    <p>₹5,999</p>
                     <button class="btn-secondary">Add to Cart</button>
                 </div>
                 <div class="product-card">
                     <img src="assets/images/product2.jpg" alt="Product 2">
                     <h3>Product Name</h3>
-                    <p>$129.99</p>
+                    <p>₹9,999</p>
                     <button class="btn-secondary">Add to Cart</button>
                 </div>
                  <div class="product-card">
                     <img src="assets/images/product1.jpg" alt="Product 1">
                     <h3>Product Name</h3>
-                    <p>$99.99</p>
+                    <p>₹7,999</p>
                     <button class="btn-secondary">Add to Cart</button>
                 </div>
             </div>
@@ -229,10 +257,27 @@
 
         <section class="customer-reviews">
             <h2>Customer Reviews</h2>
-            <div class="review-slider">
-                <div class="review active">
+            <div class="review-grid">
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
                     <p>"I love my new cookware set! The quality is amazing and it looks beautiful in my kitchen."</p>
                     <h4>- Jane Doe</h4>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p>"Excellent non-stick performance and super easy to clean. Highly recommended!"</p>
+                    <h4>- John Smith</h4>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>"The pressure cooker is a game-changer. It's safe, fast, and cooks food perfectly every time."</p>
+                    <h4>- Emily Jones</h4>
                 </div>
             </div>
         </section>

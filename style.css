@@ -62,13 +62,63 @@ img {
 .header-icons a {
     margin-left: 1.5rem;
     font-size: 1.2rem;
+    position: relative;
 }
+
+.cart-icon-container .cart-count {
+    position: absolute;
+    top: -10px;
+    right: -15px;
+    background-color: #ffd700;
+    color: #000;
+    border-radius: 50%;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
 
 .hamburger-menu {
     display: block;
     cursor: pointer;
     font-size: 1.5rem;
 }
+
+/* Search Bar */
+.search-bar {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    background-color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.search-bar.open {
+    max-height: 100px; /* Adjust as needed */
+    padding: 1rem 2rem;
+}
+
+#search-input {
+    flex-grow: 1;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+#close-search {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
 
 /* Slide-out Mobile Nav */
 .mobile-nav {
@@ -151,7 +201,7 @@ main {
 }
 
 section {
-    padding: 4rem 0;
+    padding: 4rem 2rem; /* Add horizontal padding */
     text-align: center;
 }
 
@@ -265,27 +315,99 @@ h2 {
     }
 }
 
-/* Categories */
-.category-icons {
+/* Categories Showcase */
+.categories-showcase {
     display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 4rem 2rem;
+}
+
+.category-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.category-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 300px;
+    color: #fff;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
+    transition: transform 0.4s ease;
 }
 
-.category-item {
-    text-align: center;
-    transition: transform 0.3s ease;
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s ease;
 }
 
-.category-item:hover {
-    transform: translateY(-10px);
+.category-card:hover {
+    transform: scale(1.05);
 }
 
-.category-item i {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: #ffd700;
+.category-card:hover::before {
+    left: 100%;
+}
+
+.category-card.large {
+    flex: 1;
+}
+
+.category-card.medium {
+    flex: 1;
+}
+
+.category-card.small {
+    flex: 1;
+}
+
+.category-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.6);
+}
+
+.category-content {
+    z-index: 1;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* YouTube Video Section */
+.youtube-video-section {
+    padding: 4rem 2rem;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 /* Product Grid */
@@ -335,6 +457,7 @@ h2 {
     color: #ffd700;
     font-weight: bold;
     border-radius: 5px;
+    cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -359,6 +482,34 @@ h2 {
     font-size: 3rem;
     margin-bottom: 1rem;
     color: #ffd700;
+}
+
+/* Customer Reviews */
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.review-card {
+    background-color: #1a1a1a;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.review-stars {
+    color: #ffd700;
+    margin-bottom: 1rem;
+}
+
+.review-card p {
+    font-style: italic;
+}
+
+.review-card h4 {
+    margin-top: 1rem;
+    text-align: right;
 }
 
 /* Newsletter */
@@ -458,6 +609,10 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .category-row {
+        flex-direction: column;
+    }
+
     .product-grid {
         grid-template-columns: 1fr;
     }
